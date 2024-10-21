@@ -40,6 +40,10 @@
   font-size: 16px;
   color: #555;
   margin-bottom: 15px;
+  padding-right: 50px; /* Reduce padding */
+  word-wrap: break-word; /* Allows text to wrap within container */
+  max-height: 200px; /* Limit height to prevent large text blocks */
+  overflow-y: auto; /* Adds a scroll if the description is too long */
 }
 
 .product-details-price {
@@ -99,6 +103,7 @@
 
 /* Media Query for Responsiveness */
 @media (max-width: 768px) {
+
   .product-details {
     flex-direction: column;
   }
@@ -117,5 +122,8 @@
 
   .details-details-container {
     width: 100%;
+  }
+  .product-details-category{
+    font-size: x-small;
   }
 }

@@ -64,7 +64,7 @@ function ProductDetails() {
       </div>
       <div>
         <h1 className='related-text'>Related Products</h1>
-        <RowCard endpoint={`/products/category/${product.category}`} head='all' />
+        <RowCard endpoint={`/products/category/${product.category}`} head={product.category} />
         <Fotter/>
       </div>
 
