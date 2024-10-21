@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RowCard from "../components/RowCard/RowCard";
 import PrivateRoute from "../PrivateRoute";
 import Login from "../Pages/Login/Login";
 import Home from "../Pages/Home/Home";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 
 function ElementRoutes() {
   return (
@@ -19,10 +19,10 @@ function ElementRoutes() {
                       }
                   />
                   <Route
-                      path="row"
+                      path="product"
                       element={
                           <PrivateRoute>
-                              <RowCard />
+                              <ProductDetails />
                           </PrivateRoute>
                       }
                   />

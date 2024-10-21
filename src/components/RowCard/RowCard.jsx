@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductCard from '../ProductCard/ProductCard'
 
-function RowCard() {
+function RowCard(props) {
   return (
-    <div>RowCard</div>
+    <div>RowCard 
+      <ProductCard prd={props.prd}/>
+    </div>
   )
 }
 
