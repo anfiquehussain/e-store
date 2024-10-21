@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { Base_url } from '../../constant/base';
-import { FaCartShopping } from "react-icons/fa6";
+import { CiShop } from "react-icons/ci";
 
 function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,8 +71,9 @@ function Hero() {
                             <p className="rating">Rating: {products[currentIndex].rating.rate} ({products[currentIndex].rating.count} reviews)</p>
 
                         <button className="shop" aria-label="Shop Now">
-                            <FaCartShopping /> Shop Now
+                            Shop Now 
                         </button>
+
                     </div>
                 </div>
                 

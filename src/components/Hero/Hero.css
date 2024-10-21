@@ -26,6 +26,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 8px;
+    background-color: #fff;
 }
 
 .product-info {
@@ -38,18 +39,21 @@
     font-size: 14px;
     color: #888;
     margin-bottom: 10px;
+    background-color: #fff;
 }
 
 .title {
     font-size: 20px;
     color: #333;
     margin: 10px 0;
+    background-color: #fff;
 }
 
 .price {
     color: #888;
     font-weight: bold;
     margin: 5px 0;
+    background-color: #fff;
 }
 
 /* Shop Button */
@@ -63,15 +67,23 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .shop:hover {
     background-color: #c02d49;
 }
 
+.shop svg {
+    margin-right: 8px; /* Adds spacing between the icon and the text */
+}
+
+
 .rating {
     font-size: 14px;
     color: #888;
+    background-color: #fff;
 }
 
 /* Carousel Navigation Buttons */
