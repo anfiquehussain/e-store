@@ -19,7 +19,7 @@ function ElementRoutes() {
                       }
                   />
                   <Route
-                      path="product"
+                      path="/product/:id"
                       element={
                           <PrivateRoute>
                               <ProductDetails />

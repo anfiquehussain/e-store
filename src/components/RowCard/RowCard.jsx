@@ -1,12 +1,64 @@
-import React from 'react'
-import ProductCard from '../ProductCard/ProductCard'
+import { useEffect, useState, useRef } from "react";
+import ProductCard from '../ProductCard/ProductCard';
+import './RowCard.css'; // Import the CSS file
+import { Base_url } from "../../constant/base";
 
-function RowCard(props) {
+function RowCard({ endpoint, head }) {
+  const [products, setProducts] = useState([]);
+  const rowContainerRef = useRef(null);
+
+  useEffect(() => {
+    FetchProduct();
+  }, []);
+
+  const FetchProduct = async () => {
+    try {
+      const response = await fetch(`${Base_url}${endpoint}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
+  // Scroll the container to the left
+  const scrollLeft = () => {
+    rowContainerRef.current.scrollBy({
+      left: -350, // Adjust this value for how far you want to scroll
+      behavior: 'smooth'
+    });
+  };
+
+  // Scroll the container to the right
+  const scrollRight = () => {
+    rowContainerRef.current.scrollBy({
+      left: 350, // Adjust this value for how far you want to scroll
+      behavior: 'smooth'
+    });
+  };
+
+  console.log(products)
+
   return (
-    <div>RowCard 
-      <ProductCard prd={props.prd}/>
+    <div className="rowCardWrapper">
+      <div className="scrollButtons">
+        <button className="scrollBtn" onClick={scrollLeft}>{"<"}</button>
+        <button className="scrollBtn" onClick={scrollRight}>{">"}</button>
+        {/* Header on the right side */}
+        <p className="header_row">{head}</p>
+      </div>
+
+      {/* Row Container for products */}
+      <div className='rowContainer' ref={rowContainerRef}>
+        {products.map((product) => (
+          <ProductCard key={product.id} prd={product} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default RowCard
+export default RowCard;

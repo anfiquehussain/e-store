@@ -38,7 +38,6 @@ function Navbar() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            
             <Link className="nav-link" to='/product'><p>logo</p></Link>
           </div>
           <div className="menu-icon" onClick={toggleMenu}>

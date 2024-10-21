@@ -3,37 +3,37 @@ import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import RowCard from "../../components/RowCard/RowCard";
 
-
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
 
   useEffect(() => {
-    FetchProduct();
+    FetchCat();
   }, []);
 
-  const FetchProduct = async () => {
+  const FetchCat = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("https://fakestoreapi.com/products/categories");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      setProducts(data); // Make sure 'setProducts' is defined in your context
+      setCategories(data);
     } catch (error) {
-      console.error("Error fetching products:", error); // Added 'error' to catch block
+      console.error("Error fetching products:", error);
     }
   };
-  console.log(products)
-
 
   return (
     <>
-    <Navbar/>
-    <Hero/>
-      {products.map((product)=>{
-        
-      })}
-    <RowCard prd='hallo'/>
+      <Navbar />
+      <Hero />
+      <RowCard endpoint={`/products`} head='all' />
+      {categories.map((category) => (
+        <div style={{ overflowX: "auto" }} key={category}>
+          <RowCard endpoint={`/products/category/${category.toLowerCase()}`} head={category} />
+        </div>
+      ))}
     </>
   );
 };

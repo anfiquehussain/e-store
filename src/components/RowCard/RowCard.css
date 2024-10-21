@@ -1,0 +1,41 @@
+.rowContainer {
+  display: flex;
+  flex-direction: row; /* Items in a row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 10px;
+  margin-bottom: 1rem;
+  gap: 16px; /* Space between cards */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.rowContainer::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+.scrollBtn {
+  background-color: #ccc;
+  border: none;
+  border-radius: 0.5rem;
+  padding:5px 20px 5px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.scrollButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.header_row {
+  margin-left: auto;
+  color: black;
+  font-size: 16px;
+}
+
+.rowCardWrapper {
+  display: flex;
+  flex-direction: column; /* Stack buttons on top of the row */
+}
