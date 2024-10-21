@@ -14,6 +14,7 @@
   width: 100%;
   max-width: 400px;
   border: 1px solid #ddd;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
 
 .login-title {
@@ -62,13 +63,12 @@
 }
 
 .password-toggle:hover {
-  color: #d23f57; /* Change color on hover */
+  color: #d23f57;
 }
 
 .login-button {
   background-color: #d23f57;
   color: #fff;
-
   border: none;
   border-radius: 4px;
   padding: 0.8rem 1rem;
@@ -78,11 +78,38 @@
 }
 
 .login-button:hover {
-  background-color: #c02d49;;
+  background-color: #c02d49;
 }
 
 .error-message {
   color: #dc3545;
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 1.5rem; 
+    max-width: 90%; 
+  }
+
+  .login-title {
+    font-size: 1.5rem; 
+  }
+
+  .login-input, 
+  .password-input, 
+  .login-button {
+    font-size: 0.9rem; 
+    padding: 0.6rem; 
+  }
+
+  .password-toggle {
+    font-size: 1rem;
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+  }
 }

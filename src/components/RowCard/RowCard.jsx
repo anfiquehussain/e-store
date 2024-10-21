@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import ProductCard from '../ProductCard/ProductCard';
 import './RowCard.css'; // Import the CSS file
 import { Base_url } from "../../constant/base";
@@ -7,11 +7,8 @@ function RowCard({ endpoint, head }) {
   const [products, setProducts] = useState([]);
   const rowContainerRef = useRef(null);
 
-  useEffect(() => {
-    FetchProduct();
-  }, []);
-
-  const FetchProduct = async () => {
+  // Define FetchProduct using useCallback to memoize the function
+  const FetchProduct = useCallback(async () => {
     try {
       const response = await fetch(`${Base_url}${endpoint}`);
       if (!response.ok) {
@@ -22,25 +19,32 @@ function RowCard({ endpoint, head }) {
     } catch (error) {
       console.error("Error fetching products:", error);
     }
-  };
+  }, [endpoint]); 
+
+  useEffect(() => {
+    FetchProduct();
+  }, [FetchProduct]); 
 
   // Scroll the container to the left
   const scrollLeft = () => {
     rowContainerRef.current.scrollBy({
-      left: -350, // Adjust this value for how far you want to scroll
+      left: -350, 
       behavior: 'smooth'
     });
   };
+  
+
+ 
 
   // Scroll the container to the right
   const scrollRight = () => {
     rowContainerRef.current.scrollBy({
-      left: 350, // Adjust this value for how far you want to scroll
+      left: 350, 
       behavior: 'smooth'
     });
   };
 
-
+  console.log(products)
 
   return (
     <div className="rowCardWrapper">

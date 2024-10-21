@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import RowCard from "../../components/RowCard/RowCard";
+import { Base_url } from "../../constant/base";
+import Fotter from "../../components/Fotter/Fotter";
+
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -13,7 +16,7 @@ const Home = () => {
 
   const FetchCat = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/products/categories");
+      const response = await fetch(`${Base_url}/products/categories`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -34,6 +37,7 @@ const Home = () => {
           <RowCard endpoint={`/products/category/${category.toLowerCase()}`} head={category} />
         </div>
       ))}
+      <Fotter />
     </>
   );
 };

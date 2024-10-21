@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { Base_url } from "../constant/base";
 
 
 const AuthContext = createContext();
@@ -18,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch("https://fakestoreapi.com/auth/login", {
+      const response = await fetch(`${Base_url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

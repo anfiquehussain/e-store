@@ -92,6 +92,10 @@
   transform: scale(1.05);
 }
 
+.related-text{
+    margin-left: 100px;
+}
+
 
 /* Media Query for Responsiveness */
 @media (max-width: 768px) {
@@ -99,6 +103,11 @@
     flex-direction: column;
   }
 
+  .related-text{
+    font-size: medium;
+    text-align: start;
+    margin-left: 10px;
+}
   .image-details-container {
     width: 50%; 
     margin: 0 auto; 

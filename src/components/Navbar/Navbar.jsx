@@ -5,8 +5,9 @@ import { FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { Base_url } from "../../constant/base";
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cat, setCat] = useState([]);
   const { logout } = useAuth(); 
 
@@ -17,7 +18,7 @@ function Navbar() {
 
   const FetchCat = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/products/categories");
+      const response = await fetch(`${Base_url}/products/categories`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -57,19 +58,25 @@ function Navbar() {
                   </select>
                 </p>
               </li>
-              <li>
-                <p onClick={logout} >Logout</p>
-              </li>
+
               <li>
                 <p><FaRegUser/></p>
               </li>
               <li>
                 <p><IoCartOutline size={20}/></p>
               </li>
+              <li>
+                <p onClick={logout} >Logout</p>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
+      <div className="cat">
+        {cat.map((c) => {
+          return <p value={c}>{c}</p>
+        })}
+      </div>
     </>
   );
 }

@@ -4,6 +4,8 @@ import './ProductDetails.css';
 import { Base_url } from '../../constant/base';
 import Navbar from '../../components/Navbar/Navbar';
 import { FaStar } from "react-icons/fa";
+import RowCard from '../../components/RowCard/RowCard';
+import Fotter from '../../components/Fotter/Fotter';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -60,6 +62,12 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+      <div>
+        <h1 className='related-text'>Related Products</h1>
+        <RowCard endpoint={`/products/category/${product.category}`} head='all' />
+        <Fotter/>
+      </div>
+
     </>
   );
 }
