@@ -16,6 +16,11 @@
 
 .nav-link{
     text-decoration: none;
+    color: #d23f57;
+}
+
+.nav-link:hover{
+    color: #c41e4a;
 }
 
 .logo {
@@ -96,7 +101,7 @@
   }
 
   .nav-elements.active {
-    width: 270px; /* Width when active */
+    width: 270px; 
   }
 
   .nav-elements ul {
@@ -111,14 +116,14 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .nav-elements ul li:not(:last-child) {
     margin-right: 30px;
   }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .menu-icon {
     display: block;
     cursor: pointer;
@@ -129,7 +134,7 @@
     right: 0;
     top: 60px; 
     background-color: #F6F9FC;
-    width: 0; /* Start hidden */
+    width: 0; 
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;

@@ -1,13 +1,16 @@
-// Login.jsx
-
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './Login.css'
 
 const Login = () => {
     const { isAuthenticated, login, error } = useAuth();
     const [username, setUsername] = useState('mor_2314');
     const [password, setPassword] = useState('83r5^_');
+    const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const from = location.state?.from || '/';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,30 +18,48 @@ const Login = () => {
     };
 
     if (isAuthenticated) {
-        return <Navigate to="/" />;
+        return <Navigate to={from} />;
     }
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+        <div className="login-page">
+            <div className="login-container">
+                <h2 className="login-title">Login</h2>
+                <form onSubmit={handleSubmit} className="login-form">
+                    <div className="form-group">
+                        <input
+                            className="login-input"
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group password-container">
+                        <input
+                            className="login-input password-input"
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <button
+                            type="button"
+                            className="password-toggle"
+                            onClick={() => setShowPassword(!showPassword)}
+                            aria-label="Toggle password visibility"
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
+                    </div>
+                    <button type="submit" className="login-button">
+                        Login
+                    </button>
+                </form>
+                {error && <p className="error-message">{error}</p>}
+            </div>
         </div>
     );
 };

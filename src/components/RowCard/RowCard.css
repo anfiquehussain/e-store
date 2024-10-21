@@ -22,6 +22,20 @@
   margin-right: 10px;
 }
 
+/* .scrollBtn {
+  background-color: #d23f5843;
+  border: none;
+  border-radius: 0.5rem;
+  padding:5px 20px 5px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+.scrollBtn:hover{
+  background: #c02d487a;
+} */
+
 .scrollButtons {
   display: flex;
   justify-content: space-between;

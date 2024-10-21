@@ -40,7 +40,7 @@ function RowCard({ endpoint, head }) {
     });
   };
 
-  console.log(products)
+
 
   return (
     <div className="rowCardWrapper">

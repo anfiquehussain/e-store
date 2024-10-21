@@ -10,7 +10,9 @@ function ProductCard({ prd }) {
       <p className="productRCategory" >
         {prd.category}
       </p>
-      <img src={prd.image} alt={prd.title} className="productImage" />
+      <Link to={`/product/${prd.id}`}>
+        <img src={prd.image} alt={prd.title} className="productImage" />
+      </Link>
 
       <p className='productTitle'>
         <Link to={`/product/${prd.id}`}>{prd.title}</Link>

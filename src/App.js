@@ -3,8 +3,6 @@ import { AuthProvider } from "./context/AuthContext.js";
 import ElementRoutes from "./path/ElementRoutes.jsx";
 
 function App() {
-
-
   return (
     <div className="App">
       <AuthProvider>

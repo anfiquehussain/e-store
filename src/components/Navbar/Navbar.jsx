@@ -30,7 +30,7 @@ function Navbar() {
 
 
   const toggleMenu = () => {
-    setIsMenuOpen(prevState => !prevState); // Toggle the menu open state
+    setIsMenuOpen(prevState => !prevState); 
   };
 
   return (
@@ -38,7 +38,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Link className="nav-link" to='/product'><p>logo</p></Link>
+            <Link className="nav-link" to='/'><p>E-Shop</p></Link>
           </div>
           <div className="menu-icon" onClick={toggleMenu}>
             <CiMenuBurger />
@@ -56,9 +56,6 @@ function Navbar() {
                     })}
                   </select>
                 </p>
-              </li>
-              <li>
-                <p >Blogs</p>
               </li>
               <li>
                 <p onClick={logout} >Logout</p>

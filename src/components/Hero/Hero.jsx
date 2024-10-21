@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { Base_url } from '../../constant/base';
-import { CiShop } from "react-icons/ci";
+import { Link } from 'react-router-dom';
+import { FaStar } from "react-icons/fa";
 
 function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,7 +17,7 @@ function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-        }, 3000);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, [products]);
@@ -68,11 +69,15 @@ function Hero() {
                         <p className="category">{products[currentIndex].category}</p>
                         <h2 className="title">{products[currentIndex].title}</h2>
                             <p className="price">${products[currentIndex].price.toFixed(2)}</p>
-                            <p className="rating">Rating: {products[currentIndex].rating.rate} ({products[currentIndex].rating.count} reviews)</p>
+                        <p className="rating"><span className='RatingStar'><FaStar /></span>  {products[currentIndex].rating.rate} ({products[currentIndex].rating.count} reviews)</p>
 
-                        <button className="shop" aria-label="Shop Now">
-                            Shop Now 
-                        </button>
+
+                        <Link to={`/product/${products[currentIndex].id}`}>
+                            <button className="shop" aria-label="Shop Now">
+                                Shop Now
+                            </button>
+                        </Link>
+
 
                     </div>
                 </div>
